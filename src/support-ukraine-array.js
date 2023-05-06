@@ -1,8 +1,9 @@
-const array = [
+export const array = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: null,
+    img: './images/Book-icon/save.png',
+    img2: './images/Book-icon/save@2x.png',
   },
   {
     title: 'Project HOPE',
