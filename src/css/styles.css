@@ -1,14 +1,3 @@
-/* body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
-  line-height: 1.5;
-  text-decoration: none;
-  list-style: none;
-} */
 .title-support-ukraine {
   display: flex;
   margin-bottom: 40px;
@@ -29,7 +18,7 @@ button {
   list-style: none;
   padding: 0;
 }
-.container-support-ukraine {
+.section-support-ukraine {
   width: 255px;
   /* height: 352px; */
   padding: 24px 40px 20px;
@@ -57,13 +46,13 @@ button {
 .logo-support-ukraine a {
   margin-left: 16px;
 }
+.section-button-support-ukraine {
+  text-align: center;
+}
 .button-support-ukraine {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  text-align: center;
-  /* margin-left: auto;
-  margin-right: auto; */
   /* transform: rotate(180deg); */
   fill: #4f2ee8;
   background-color: white;
@@ -71,4 +60,10 @@ button {
 }
 .button-icon-support-ukraine {
   padding: 7px 3px 5px;
+}
+
+/* ==== */
+h1 {
+  font-size: large;
+  margin: 50px 0 50px;
 }
