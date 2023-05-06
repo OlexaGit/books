@@ -18,12 +18,12 @@ const loadMoreBtn = document.querySelector('button.button-support-ukraine');
 
 function renderListSupportForMobile(array) {
   console.log(array);
+  clearContainer();
   const markup = array
     .map(({ title, url, img }, index) => {
       index += 1;
-      return `       
-    <ul class="block-support-ukraine">
-          <li class="logo-support-ukraine">
+      return `        
+          <div class="logo-support-ukraine">
             0${index}<a
               href="${url}"
               title="${title}"
@@ -34,7 +34,7 @@ function renderListSupportForMobile(array) {
                 alt="${title}"
                 height="32"
             /></a>
-                  </ul>
+                  </div>
   `;
     })
     .join('');
@@ -44,6 +44,7 @@ function renderListSupportForMobile(array) {
 }
 function renderListSupportForTableAndDesktop(array) {
   console.log(array);
+  clearContainer();
   const markup = array
     .map(({ title, url, img, img2 }, index) => {
       index += 1;
@@ -69,6 +70,10 @@ function renderListSupportForTableAndDesktop(array) {
   container.insertAdjacentHTML('beforeend', markup);
 }
 
+function clearContainer() {
+  container.innerHTML = '';
+  // loadMoreBtn.style.display = 'none';
+}
 // console.log(window.innerWidth);
 //  or
 // const vw = Math.max(
