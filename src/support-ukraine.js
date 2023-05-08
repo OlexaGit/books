@@ -3,7 +3,7 @@ import { array } from './support-ukraine-array';
 const container = document.querySelector('#support-ukraine');
 const loadMoreBtn = document.querySelector('button.button-support-ukraine');
 let limit = 0;
-let inc = 1;
+let inc = 2;
 
 (function () {
   const vw = Math.max(
@@ -55,31 +55,33 @@ loadMoreBtn.addEventListener('click', scrolList);
 
 function scrolList() {
   clearContainer();
-  // inc += 1;
-  // if (inc > 4) {
-  //   inc = 1;
-  //   renderListScrol(array, limit, inc);
-  // }
-  renderListScrol(array, limit);
-  // console.log(limit);
-  console.log('inc', inc);
+  if (limit === 6) {
+    if (inc < limit - 1) {
+      renderListScrol(array, limit, inc);
+      inc += 1;
+    } else {
+      renderListSupport(array, limit);
+      inc = 2;
+      return;
+    }
+  } else if (inc < limit + 3) {
+    renderListScrol(array, limit, inc);
+    inc += 1;
+  } else {
+    renderListSupport(array, limit);
+    inc = 2;
+    return;
+  }
 }
 
-function renderListScrol(array, limit) {
-  // inc += 1;
-  // if (inc > 9) {
-  //   inc = 1;
-  // }
+function renderListScrol(array, limit, inc) {
   console.log('inc', inc);
-  // clearContainer();
   const markup = array
     .map(({ title, url, img, img2 }, index) => {
       index += 1;
-      console.log('index', index);
-      console.log('limit', limit);
+      // console.log('index', index);
+      // console.log('limit', limit);
       if (index >= inc && index < limit + inc) {
-        console.log('index', index);
-        console.log('limit', limit);
         return `        
           <div class="logo-support-ukraine">
             0${index}<a
