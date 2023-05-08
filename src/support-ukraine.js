@@ -2,8 +2,9 @@ import { array } from './support-ukraine-array';
 
 const container = document.querySelector('#support-ukraine');
 const loadMoreBtn = document.querySelector('button.button-support-ukraine');
+let limit = 0;
+let inc = 1;
 
-// console.log(array);
 (function () {
   const vw = Math.max(
     document.documentElement.clientWidth || 0,
@@ -11,20 +12,22 @@ const loadMoreBtn = document.querySelector('button.button-support-ukraine');
   );
   console.log(vw);
   if (vw < 768) {
-    renderListSupportForMobile(array);
+    limit = 4;
+    renderListSupport(array, limit);
   } else {
-    renderListSupportForTableAndDesktop(array);
+    limit = 6;
+    renderListSupport(array, limit);
   }
 })();
 
-function renderListSupportForMobile(array) {
-  console.log(array);
+function renderListSupport(array, limit) {
+  // console.log(array);
   clearContainer();
   const markup = array
     .map(({ title, url, img, img2 }, index) => {
       index += 1;
-      if (index < 5) {
-        console.log(index);
+      if (index < limit + 1) {
+        // console.log(index);
         return `        
           <div class="logo-support-ukraine">
             0${index}<a
@@ -47,13 +50,37 @@ function renderListSupportForMobile(array) {
   // loadMoreBtn.style.display = 'inline-block';
   container.insertAdjacentHTML('beforeend', markup);
 }
-function renderListSupportForTableAndDesktop(array) {
-  console.log(array);
+
+loadMoreBtn.addEventListener('click', scrolList);
+
+function scrolList() {
   clearContainer();
+  // inc += 1;
+  // if (inc > 4) {
+  //   inc = 1;
+  //   renderListScrol(array, limit, inc);
+  // }
+  renderListScrol(array, limit);
+  // console.log(limit);
+  console.log('inc', inc);
+}
+
+function renderListScrol(array, limit) {
+  // inc += 1;
+  // if (inc > 9) {
+  //   inc = 1;
+  // }
+  console.log('inc', inc);
+  // clearContainer();
   const markup = array
     .map(({ title, url, img, img2 }, index) => {
       index += 1;
-      return `
+      console.log('index', index);
+      console.log('limit', limit);
+      if (index >= inc && index < limit + inc) {
+        console.log('index', index);
+        console.log('limit', limit);
+        return `        
           <div class="logo-support-ukraine">
             0${index}<a
               href="${url}"
@@ -68,16 +95,19 @@ function renderListSupportForTableAndDesktop(array) {
             /></a>
             </div>
   `;
+      }
     })
     .join('');
+
   // loadMoreBtn.style.display = 'inline-block';
-  container.insertAdjacentHTML('beforeend', markup);
+  container.innerHTML = markup;
 }
 
 function clearContainer() {
   container.innerHTML = '';
   // loadMoreBtn.style.display = 'none';
 }
+
 // console.log(window.innerWidth);
 //  or
 // const vw = Math.max(
