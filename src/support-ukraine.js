@@ -79,8 +79,6 @@ function renderListScrol(array, limit, inc) {
   const markup = array
     .map(({ title, url, img, img2 }, index) => {
       index += 1;
-      // console.log('index', index);
-      // console.log('limit', limit);
       if (index >= inc && index < limit + inc) {
         return `        
           <div class="logo-support-ukraine">
