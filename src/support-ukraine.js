@@ -117,3 +117,5 @@ function clearContainer() {
 //   window.innerWidth || 0
 // );
 // console.log(vw);
+
+browserslist.clearCaches();
